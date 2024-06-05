@@ -1,0 +1,116 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+
+    body {
+        background-color: #e3e3e3;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    label {
+        display: inline-block;
+        width: 200px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    textarea,
+    select {
+        width: 250px;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        width: 250px;
+        height: 100px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        background-color: #f95959;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ed4545;
+    }
+
+    
+    input[type="checkbox"] {
+        width: auto;
+        margin: 5px;
+    }
+
+    .first-color {
+        background: #233142;
+    }
+
+    .second-color {
+        background: #455d7a;
+    }
+
+    .third-color {
+        background: #f95959;
+    }
+
+    .fourth-color {
+        background: #e3e3e3;
+    }
+
+</style>
+
+<form method="post" asp-controller="Cinema" asp-action="TicketSave">
+
+    <h3 class="second-color999999999">Buy Movie Ticket</h3><br />
+    <p> You can proceed to the other steps by choosing from the movie, hall and session options listed below. </p><br />
+
+    <label for="movie">Movie Choice </label>
+    <select name="movie">
+        <option value="oppenheimer">Oppenheimer</option>
+        <option value="dune2">Dune Part 2</option>
+        <option value="godzilla">Godzilla</option>
+    </select><br />
+    <label for="hall">Movie Hall Choice</label>
+    <select name="movie">
+        <option value="cevahir">Cevahir</option>
+        <option value="akasya">Akasya</option>
+        <option value="trump">Trump</option>
+    </select><br />
+
+    
+
+    <input type="submit" name="Submit" value="Submit Form" />
+</form>
+</table>

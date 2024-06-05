@@ -1,0 +1,204 @@
+﻿@{
+    ViewData["Title"] = "Homework Page";
+}
+<h1>Homeworks </h1><br />
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    td:hover {
+        background-color: yellow;
+    }
+
+    #clock {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .slider{
+        position: relative;
+        width: 25%;
+        margin: auto;
+        overflow: hidden;
+    }
+    .slider img{
+        width: 100%;
+        display: none;
+    }
+    img.displaySlide{
+        display: block;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    .slider button{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        padding: 10px 15px;
+        background-color: hsla(0, 0%, 0%, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .prev{
+        left: 0;
+    }
+    .next{
+        right: 0;
+    }
+</style>
+
+
+    <table>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+        <tr>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+            <td>        </td>
+        </tr>
+    </table>
+
+<h1>Digital Clock with JS </h1>
+<br />
+
+<div id="clock"></div>
+
+<script>
+    function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        minutes = (minutes < 10 ? '0' : '') + minutes;
+        seconds = (seconds < 10 ? '0' : '') + seconds;
+
+        var timeString = hours + ':' + minutes + ':' + seconds;
+
+        document.getElementById('clock').textContent = timeString;
+    }
+    setInterval(updateClock, 1000);
+
+    updateClock();
+</script>
+
+<h1>Image Slider with JS </h1>
+<br />
+
+<div class="slider">
+    <div class="slides">
+        <img class="slide" src="/images/slideImages/image1.jpg" alt="Image #1">
+        <img class="slide" src="/images/slideImages/image2.jpg" alt="Image #2">
+        <img class="slide" src="/images/slideImages/image3.jpg" alt="Image #3">
+        <img class="slide" src="/images/slideImages/image4.jpg" alt="Image #4">
+        <img class="slide" src="/images/slideImages/image5.jpg" alt="Image #5">
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094</button>
+    <button class="next" onclick="nextSlide()">&#10095</button>
+</div>
+
+
+<script>
+    const slides = document.querySelectorAll(".slides img");
+    let slideIndex = 0;
+    let intervalId = null;
+
+    document.addEventListener("DOMContentLoaded", initializeSlider);
+
+    function initializeSlider() {
+        if (slides.length > 0) {
+            slides[slideIndex].classList.add("displaySlide");
+            intervalId = setInterval(nextSlide, 5000);
+        }
+    }
+
+    function showSlide(index) {
+        if (index >= slides.length) {
+            slideIndex = 0;
+        }
+        else if (index < 0) {
+            slideIndex = slides.length - 1;
+        }
+
+        slides.forEach(slide => {
+            slide.classList.remove("displaySlide");
+        });
+        slides[slideIndex].classList.add("displaySlide");
+    }
+
+    function prevSlide() {
+        clearInterval(intervalId);
+        slideIndex--;
+        showSlide(slideIndex);
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+    }
+
+</script>

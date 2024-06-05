@@ -1,0 +1,188 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model WebApplication1.Models.CinemaModel
+
+<style>
+
+    body {
+        background-color: #e3e3e3;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .error {
+        color: red;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    label {
+        display: inline-block;
+        width: 200px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    textarea,
+    select {
+        width: 250px;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        width: 250px;
+        height: 100px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        background-color: #f95959;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ed4545;
+    }
+
+    
+    input[type="checkbox"] {
+        width: auto;
+        margin: 5px;
+    }
+
+    .first-color {
+        background: #233142;
+    }
+
+    .second-color {
+        background: #455d7a;
+    }
+
+    .third-color {
+        background: #f95959;
+    }
+
+    .fourth-color {
+        background: #e3e3e3;
+    }
+
+</style>
+
+<form method="post" name="movieAdd" asp-controller="Cinema" asp-action="movieSave">
+
+    <h3 class="second-color">Add a movie to the list by specifying the hour, hall and movie information to the system.</h3><br />
+
+    <label asp-for="movieGenre">Genre of the movie : </label>
+    <select asp-for="movieGenre">
+        <option value="action">Action</option>
+        <option value="romance">Romance</option>
+        <option value="horror">Horror</option>
+        <option value="arthouse">Arthouse</option>
+        <option value="comedy">Comedy</option>
+    </select><br />
+    <label asp-for="mName" required>Movie Name : </label>
+    <input type="text" asp-for="mName" id="mName" /><span asp-validation-for="mName" id="mNameError" class="error"></span><br />
+    <label asp-for="dName">Director's Name : </label>
+    <input asp-for="dName" type="text" id="dName" /><span asp-validation-for="dName" id="dNameError" class="error"></span><br />
+    <label asp-for="language">Language</label><br />
+    <input asp-for="language" type="radio" name="language" id="language1" value="Turkish" />Turkish<br />
+    <input asp-for="language" type="radio" name="language" id="language2" value="Foreign Language" />Foreign Language with Turkish Subtitles<br />
+    <label>The halls you wanna show the movie in : </label><span asp-validation-for="hall" id="cbError" class="error"></span><br />
+    <input type="checkbox" id="cb1" name="cb1" value="cevahir">
+    <label asp-for="hall">Cevahir Mall</label><br>
+    <input asp-for="hall" type="checkbox" id="cb2" name="cb2" value="trump">
+    <label asp-for="hall">Trump Mall</label><br>
+    <input asp-for="hall" type="checkbox" id="cb3" name="cb3" value="akasya">
+    <label asp-for="hall">Akasya Mall</label><br><br>
+    <label asp-for="hall" for="duration">Duration of the movie in minutes</label>
+    <input asp-for="duration" type="number" min="70" name="duration" id="duration" /><span asp-validation-for="duration" id="durationError" class="error"></span><br />
+    <label asp-for="features">Features</label>
+    <select asp-for="features" name="features" value="Features">
+        <option value="IMAX">IMAX</option>
+        <option value="3D">3D</option>
+        <option value="2D">2D</option>
+        <option value="Gold Class">Gold Class</option>
+    </select><br />
+
+    <label asp-for="topic">Topic of the movie (briefly) :</label><br />
+    <textarea asp-for="topic" id="topic" name="topic" rows="4" cols="50">
+    Topic of the movie...
+    </textarea><br />
+    
+
+    
+
+    <input type="button" name="Submit" onclick="validateForm();" value="Submit Movie" />
+</form>
+
+<script>
+    function validateForm() {
+        var mName = document.getElementById('mName').value;
+        var dName = document.getElementById('dName').value;
+        var duration = document.getElementById("duration").value;
+        var error = false;
+
+        document.getElementById('dNameError').innerHTML = "";
+        document.getElementById('mNameError').innerHTML = "";
+        document.getElementById('durationError').innerHTML = "";
+        document.getElementById('cbError').innerHTML = "";
+
+        if (duration < 70) {
+            document.getElementById('durationError').innerHTML = "Movie should be at least 70 minutes.";
+            error = true;
+        }
+        if (mName == "") {
+            document.getElementById('mNameError').innerHTML = "Name cannot be empty";
+            error = true;
+            
+        } else {
+            document.getElementById('mNameError').innerHTML = "";
+            
+        }
+        if (dName == "") {
+            document.getElementById('dNameError').innerHTML = "Director name cannot be empty";
+            error = true;
+        } else {
+            document.getElementById('dNameError').innerHTML = "";
+        }
+        var cb1 = document.getElementById("cb1");
+        var cb2 = document.getElementById("cb2");
+        var cb3 = document.getElementById("cb3");
+
+        if (!(cb1.checked || cb2.checked || cb3.checked)) {
+            document.getElementById('cbError').innerHTML = "You should choose at least one of the halls.";
+            error = true;
+        }
+
+
+        if (error == false) { document.movieAdd.submit(); };
+    }
+</script>

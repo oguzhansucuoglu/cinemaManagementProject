@@ -1,0 +1,142 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+
+    body {
+        background-color: #e3e3e3;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    label {
+        display: inline-block;
+        width: 200px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    textarea,
+    select {
+        width: 250px;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        width: 250px;
+        height: 100px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        background-color: #f95959;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ed4545;
+    }
+
+    
+    input[type="checkbox"] {
+        width: auto;
+        margin: 5px;
+    }
+
+    .first-color {
+        background: #233142;
+    }
+
+    .second-color {
+        background: #455d7a;
+    }
+
+    .third-color {
+        background: #f95959;
+    }
+
+    .fourth-color {
+        background: #e3e3e3;
+    }
+
+</style>
+
+<form method="post" asp-controller="Products" asp-action="ApplicationSave">
+
+    <h3 class="second-color999999999">Job Application Form</h3><br />
+
+    <label for="department">Department you wanna work for : </label>
+    <select name="department">
+        <option value="sales">Sales</option>
+        <option value="marketing">Marketing</option>
+        <option value="IT">IT</option>
+    </select><br />
+    <label for="idNo">Your ID number :  </label>
+    <input type="text" name="idNo" id="idNo" maxlength="11" /><br />
+    <label for="fname">Your Name : </label>
+    <input type="text" name="fname" id="fname" /><br />
+    <label for="lname">Your Lastname : </label>
+    <input type="text" name="lname" id="lname" /><br />
+    <label for="gradStat">Graduation Status</label><br />
+    <input type="radio" name="gradStat" id="gradStat" value="Primary School" />Primary School<br />
+    <input type="radio" name="gradStat" id="gradStat" value="Middle School" />Middle School<br />
+    <input type="radio" name="gradStat" id="gradStat" value="High School" />High School<br />
+    <input type="radio" name="gradStat" id="gradStat" value="University" />University<br />
+    <label for="school">Graduated School</label>
+    <input type="text" name="school" id="school" placeholder="graduated schol" /><br />
+    <label for="age">Your Age</label>
+    <input type="number" name="age" id="age" /><br />
+    <label for="mStatus">Marital Status</label>
+    <select name="mStatus" value="Status">
+        <option value="married">married</option>
+        <option value="single">single</option>
+    </select><br />
+    <label for="motivation">Your motivation for wanting this job :</label>
+    <textarea id="motivation" name="motivation" rows="4" cols="50">
+    I want this job because...
+    </textarea><br />
+    <label for="email">Enter your email:</label>
+    <input type="email" id="email" name="email"><br />
+
+    
+    <input type="checkbox" id="cb1" name="cb1" value="FullTime">
+    <label for="cb1"> I wanna do full-time</label><br>
+    <input type="checkbox" id="cb2" name="cb2" value="PartTime">
+    <label for="cb2"> I wanna do part-time</label><br>
+    <input type="checkbox" id="cb3" name="cb3" value="Internship">
+    <label for="cb3"> I wanna do an internship</label><br><br>
+    
+
+    <input type="submit" name="Submit" value="Submit Form" />
+</form>
+</table>

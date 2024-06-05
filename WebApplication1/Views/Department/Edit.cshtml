@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    @model WebApplication1.Models.DepartmentModel
+}
+<form name="DepartmentForm" method="post" asp-controller="Department" asp-action="Update">
+    <div id="Test">
+        
+        <div class="form-group">
+            <label asp-for="Id">Department Id</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="Id" />
+            <span asp-validation-for="Id"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="name">Department Name</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="name" />
+            <span asp-validation-for="name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="managerName">Manager Name</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="managerName" />
+            <span asp-validation-for="managerName"></span>
+        </div>
+        <input type="submit" value="Save" />
+        </div>
+</form>
+
+<form name="DepartmentForm2" method="post" asp-controller="Department" asp-action="New">
+    <input type="submit" value="Add New Data" />
+</form>

@@ -1,0 +1,215 @@
+﻿@{
+    ViewData["Title"] = "Resume Page";
+}
+    <style>  
+        body {
+            font-family: Arial, sans-serif;
+            width: 21cm;
+            height: 29.7cm;
+            margin: 0 auto;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+        }
+
+        .leftPanel{
+            width:27%;
+            background-color:#CEA1A1;
+            padding: 0.7cm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rightPanel{
+            width: 73%;
+            padding: 0.7cm;
+        }
+
+        img{
+            width:202px;
+            margin-bottom:5px;
+        }
+        
+        .leftPanel ul li {
+            font-size:11px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            border-style:solid;
+            padding:5px;
+        }
+
+        h2 {
+            color: #555;
+            border-style:solid;
+            padding:5px;
+            font-size: 23px;
+        }
+        h3{
+            border-style:solid;
+            padding:5px;
+            font-size:18px;
+        }
+        h4{
+            font-size:15px
+        }
+        p {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        footer {
+            visibility: collapse;
+        }
+        .skills{
+            background-color:#ddd;
+            text-align:right;
+            padding-top:10px;
+            padding-bottom:10px;
+            color:white;
+        }
+        .english{width:100%; background-color:#2196F3;}
+        .c#{width:80%; background-color:#2196F3;}
+        .python{width:70%; background-color:#2196F3;}
+        .problemSolving{width:90%; background-color:#2196F3;}
+        * {
+             box-sizing: border-box;
+        }
+
+        .inner {
+            position: absolute;
+            background: transparent;
+        }
+
+        .first-color {
+            background: #155263;
+        }
+
+        .second-color {
+            background: #ff6f3c;
+        }
+
+        .third-color {
+            background: #ff9a3c;
+        }
+
+        .fourth-color {
+            background: #ffc93c;
+        }
+    </style>
+
+<div class="text-center">
+    <h1 class="display-4">My CV</h1>
+    <p>Oğuzhan Sucuoğlu CV</p>
+</div>
+
+<page size="A4">
+  <div class="container">
+
+    <div class="leftPanel">
+        <img src="/images/myImage.jpg" alt="Sample Photo">
+        <h2 class="second-color">CONTACT</h2>
+        <ul>
+            <li>+90 535 376 62 28</li>
+            <li>oguzhansucuoglu74@gmail.com</li>
+            <li><a href="https://linkedin.com/in/oğuzhan-sucuoğlu">LinkedIN</a></li>
+            <li><a href="https://github.com/oguzhansucuoglu">Github</a></li>
+            <li>Kartal, İstanbul</li>
+        </ul>
+            <h2 class="second-color">EDUCATION</h2>
+        <ul>
+            <li>MIS - Halic University</li>
+            <li>Bartın FSM Anatolian High School</li>
+        </ul>
+            <h2 class="second-color">CERTIFICATES</h2>
+        <h4><strong>Python for Machine Learning</strong></h4>
+        <p>Global AI Hub</p>
+        <h4><strong>Git Into Open Source</strong></h4>
+        <p>Microsoft Learn Student Ambassadors</p>
+    </div>
+
+    <div class="rightPanel fourth-color">
+        <h2 class="third-color">About Me</h2>
+        <h3 class="second-color">About Me</h3>
+        <p>I am Oğuzhan Sucuoğlu, 3rd year MIS student in Turkey. My undergraduate classes
+            are given in 100% English and I can write and talk fluently in English. I passed my
+            courses in school with high grades and I am using my free time to improve myself
+            by either taking extra courses online or doing club activities such as MIS club
+            career events or comic book and animation club’s social events. I know how to
+            write code in Python and C#. Aside from these I used HTML, CSS, PHP and SQL. I
+            took online courses about data science from Global AI Hub. I’ve been part of
+            organizing a tech summit as a part of MIS club in my first year in university. I
+            wanna use the technical knowledge I have in real world problems to improve my
+            practical skills.
+            Aside from software, I took business administration courses such as management,
+            accounting, economics, marketing, statistics and finance to get general
+            knowledge about business world.</p>
+
+        <h3 class="second-color">Software Knowledge</h3>
+        <p>I took 3 courses that we learn C# programming: Algortihm and Programming,
+            Software Development and Visual Programming courses. The first one I learned
+            about general logic of programming and algorithm and syntax of C#. The second
+            course I learned about OOP rules and grasped the general concepts about
+            programming. The third course I applied all the knowledge I gained from the firs
+            two and created Windows Forms apps. Aside from these the courses where I
+            learned Python, PHP, HTML, CSS, SQL, JAVA: Algortihm and Data Structures, Web
+            Design, Web Programming, Introduction to Database, Database Management
+            Systems, Object Oriented Programming.
+            I joined the bootcamp given by Global AI Hub where I combined my Python
+            programming language and statistics knowledge to use data science tools. I
+
+            wanna work in fields such as data science and business intelligence so I am self-
+            studying about these.</p>
+
+        <h3 class="second-color">Skills</h3>
+        
+        <label for="cs">C#</label>
+        <progress id="cs" value="90" max="100"> 90% </progress>
+        <br>
+        <label for="python">Python </label>
+        <progress id="python" value="70" max="100"> 70% </progress>
+        <br>
+        <label for="english">English </label>
+        <progress id="english" value="100" max="100"> 100% </progress>
+        <br>
+        <label for="problemSolving">Problem Solving</label>
+        <progress id="problemSolving" value="90" max="100"> 90% </progress>
+
+            
+            <div class="inner"><progress style="width: 300px;" id="pbar_p" value="0" max="100"></progress></div>
+            <div class="inner"><input style="width: 300px; opacity: 0.0;" oninput="update()" id="pbar_m" type="range"></div>
+           
+            <br>
+            <p style="font-family:courier;" id="exp_txt">JavaScript Skills</p>
+
+
+
+
+            <script type="text/javascript">
+                function update() {
+                    var pbar_mod = document.getElementById("pbar_m");
+                    var pbar_prg = document.getElementById("pbar_p");
+                    var exp_txt = document.getElementById("exp_txt");
+                    pbar_prg.value = pbar_mod.value;
+                    exp_txt.style.opacity = pbar_mod.value / 100.0;
+                }
+            </script>
+
+
+
+    </div>
+  </div>
+</page>
+
+
+

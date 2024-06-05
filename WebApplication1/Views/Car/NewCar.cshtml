@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model WebApplication1.Models.CarModel
+
+<form method="post" asp-controller="Car" asp-action="NewCar">
+    
+
+        <div class="form-group">
+    <label asp-for="Brand">Brand</label>
+    </div>
+        <div class="form-group">
+        <input asp-for="Brand" />
+        <span asp-validation-for="Brand" ></span>
+</div>
+       
+<div class="editor-label">
+    <label asp-for="Price">Price</label>
+
+</div>
+<div class="editor-field">
+    <input  asp-for="Price" class="text-box single-line" data-val="true" data-val-number="The field Price must be a number." data-val-range="Price must be between 0.01 and 100.00" data-val-range-max="100" data-val-range-min="0.01" data-val-required="Price is required" id="Price" name="Price" type="number" />
+        <span asp-validation-for="Price" class="field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
+</div>
+    
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">User Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+   @* <div class="form-group">
+        <label asp-for="Phone" class="control-label"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CreateDate" class="control-label"></label>
+        <input asp-for="CreateDate" class="form-control" />
+        <span asp-validation-for="CreateDate" class="text-danger"></span>
+    </div>*@
+    <input type="submit" value="submit" />
+</form>

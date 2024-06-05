@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    @model WebApplication1.Models.CinemaModel
+}
+<form name="employeeForm" method="post" asp-controller="Cinema" asp-action="Edit">
+
+    <div id="Test">
+        <input asp-for="Id" hidden /> 
+        <div class="form-group">
+            <label asp-for="mName">Movie Name</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="mName" />
+            <span asp-validation-for="mName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="dName">Director Name</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="dName" />
+            <span asp-validation-for="dName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="duration">Duration</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="duration" />
+            <span asp-validation-for="duration"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="language">Language</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="language" />
+            <span asp-validation-for="language"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="movieGenre">Genre</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="movieGenre" />
+            <span asp-validation-for="movieGenre"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="hall">Hall</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="hall" />
+            <span asp-validation-for="hall"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="features">Features</label>
+        </div>
+        <div class="form-group">
+            <input asp-for="features" />
+            <span asp-validation-for="features"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="topic">Topic</label>
+        </div>
+        <div class="form-group">
+            <textarea asp-for="topic" id="topic" name="topic" rows="4" cols="50">
+        
+        </textarea><br />
+            <span asp-validation-for="topic"></span>
+        </div>
+        <input type="submit" value="submit" />
+        </div>
+</form>
