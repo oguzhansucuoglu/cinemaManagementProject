@@ -96,7 +96,7 @@
 
 </style>
 
-<form method="post" name="movieAdd" asp-controller="Cinema" asp-action="movieSave">
+<form method="post" name="movieAdd" asp-controller="Cinema" asp-action="update">
 
     <h3 class="second-color">Add a movie to the list by specifying the hour, hall and movie information to the system.</h3><br />
 
@@ -142,7 +142,6 @@
 
     <input type="button" name="Submit" onclick="validateForm();" value="Submit Movie" />
 </form>
-
 <script>
     function validateForm() {
         var mName = document.getElementById('mName').value;

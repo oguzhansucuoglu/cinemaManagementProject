@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using WebApplication1.Data;
+
 
 namespace WebApplication1.Controllers
 {
@@ -8,6 +10,12 @@ namespace WebApplication1.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        private readonly CinemaContext _context;
+
+        public CinemaController(CinemaContext context)
+        {
+            _context = context;
         }
         public IActionResult Ticket()
         {
@@ -32,15 +40,80 @@ namespace WebApplication1.Controllers
 
             return View("movieList");
         }
-        public IActionResult List()
+        public ActionResult List()
         {
-            var movies = CinemaModel.GetList();
+            var movies = _context.Cinema.ToList();
             return View(movies);
         }
-        public IActionResult Edit(int Id)
+
+        private CinemaModel Get(int Id1)
         {
-            var movies = CinemaModel.Get(Id);
+            List<CinemaModel> Cinema = _context.Cinema.ToList();
+            foreach (CinemaModel movies in Cinema)
+            {
+                //Console.WriteLine(employee);
+                if (movies.Id == Id1)
+                {
+                    return movies;
+                }
+            }
+            return null;
+        }
+        public ActionResult Edit(int Id)
+        {
+            var movies = this.Get(Id);
             return View(movies);
         }
+
+        public ActionResult New()
+        {
+
+            return View("Edit");
+        }
+
+        public ActionResult Update(int Id, CinemaModel movieForm)
+        {
+            var movies = this.Get(Id);
+
+            if (movies == null)
+            {
+
+                CinemaModel movies1 = new(
+
+                     0,
+                     movieForm.movieGenre,
+                     movieForm.mName,
+                     movieForm.dName,
+                     movieForm.language,
+                     movieForm.hall,
+                     movieForm.duration,
+                     movieForm.features,
+                     movieForm.topic
+                );
+
+                _context.Cinema.Add(movies1); // Assuming _context is your DbContext
+
+
+            }
+            else
+            {
+
+                movies.Id = Id;
+                movies.movieGenre = movieForm.movieGenre;
+                movies.mName = movieForm.mName;
+                movies.dName = movieForm.dName;
+                movies.features = movieForm.features;
+                movies.topic = movieForm.topic;
+                movies.duration = movieForm.duration;
+                movies.hall = movieForm.hall;
+                movies.language = movieForm.language;
+
+
+            }
+            _context.SaveChanges();
+
+            return View("Edit", movies);
+        }
+
     }
 }

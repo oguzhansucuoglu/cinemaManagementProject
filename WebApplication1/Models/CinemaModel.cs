@@ -4,7 +4,7 @@ namespace WebApplication1.Models
 {
     public class CinemaModel
     {
-        public int Id { get; set; }
+        public Int32 Id { get; set; }
         [Required]
         public string? movieGenre { get; set; }
         [Required]
@@ -22,9 +22,6 @@ namespace WebApplication1.Models
         {
             List<CinemaModel> movies = new List<CinemaModel>
             {
-                new CinemaModel { Id = 0, movieGenre = "Horror", mName = "Exorcist", hall = "Cevahir Mall", language = "Turkish dub", duration = 95, dName = "William Friedkin", features ="3D" },
-                new CinemaModel { Id = 1, movieGenre = "Biography", mName = "Oppenheimer", hall = "Akasya Mall", language = "English with Turkish Sub", duration = 125, dName = "Christopher Nolan", features = "2D IMAX" },
-                new CinemaModel { Id = 2, movieGenre = "Action", mName = "Shin Godzilla", hall = "İstinye Mall", language = "Japanese with Turkish Sub", duration = 90, dName = "Hideaki Anno", features = "2D" }
             };
             return movies;
         }
@@ -41,6 +38,20 @@ namespace WebApplication1.Models
                 }
             }
             return null;
+        }
+
+        public CinemaModel() { }
+        public CinemaModel(Int32 Id, string movieGenre, string mName, string dName, string language, string hall, int duration, string features, string topic)
+        {
+            this.movieGenre = movieGenre;
+            this.mName = mName;
+            this.dName = dName;
+            this.features = features;
+            this.topic = topic;
+            this.duration = duration;
+            this.language = language;
+            this.hall = hall;
+            this.Id = Id;
         }
     }
 }

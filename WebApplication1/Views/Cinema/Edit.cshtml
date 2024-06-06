@@ -5,7 +5,7 @@
 
     @model WebApplication1.Models.CinemaModel
 }
-<form name="employeeForm" method="post" asp-controller="Cinema" asp-action="Edit">
+<form name="cinemaForm" method="post" asp-controller="Cinema" asp-action="Update">
 
     <div id="Test">
         <input asp-for="Id" hidden /> 
@@ -67,6 +67,9 @@
         </textarea><br />
             <span asp-validation-for="topic"></span>
         </div>
-        <input type="submit" value="submit" />
+        <input type="submit" value="save" />
         </div>
+</form>
+<form name="cinemaForm2" method="post" asp-controller="Cinema" asp-action="New">
+    <input type="submit" value="Add New Data" />
 </form>

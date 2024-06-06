@@ -8,10 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<EmployeeContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("HostingConnection")));
 
 builder.Services.AddDbContext<DepartmentContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("HostingConnection")));
+
+builder.Services.AddDbContext<CinemaContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("HostingConnection")));
 
 var app = builder.Build();
 
