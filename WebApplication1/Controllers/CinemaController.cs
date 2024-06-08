@@ -42,13 +42,13 @@ namespace WebApplication1.Controllers
         }
         public ActionResult List()
         {
-            var movies = _context.Cinema.ToList();
+            var movies = _context.Movies.ToList();
             return View(movies);
         }
 
         private CinemaModel Get(int Id1)
         {
-            List<CinemaModel> Cinema = _context.Cinema.ToList();
+            List<CinemaModel> Cinema = _context.Movies.ToList();
             foreach (CinemaModel movies in Cinema)
             {
                 //Console.WriteLine(employee);
@@ -91,7 +91,7 @@ namespace WebApplication1.Controllers
                      movieForm.topic
                 );
 
-                _context.Cinema.Add(movies1); // Assuming _context is your DbContext
+                _context.Movies.Add(movies1); // Assuming _context is your DbContext
 
 
             }

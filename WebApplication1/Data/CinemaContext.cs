@@ -10,7 +10,7 @@ namespace WebApplication1.Data
         {
         }
 
-        public DbSet<CinemaModel> Cinema { get; set; }
+        public DbSet<CinemaModel> Movies { get; set; }
 
     }
 
