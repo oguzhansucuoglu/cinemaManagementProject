@@ -17,10 +17,11 @@ namespace WebApplication1.Controllers
         {
             _context = context;
         }
+        /*
         public IActionResult Ticket()
         {
             return View("Ticket");
-        }
+        }*/
         public IActionResult TicketSave()
         {
             return View("TicketInformation");
@@ -41,6 +42,11 @@ namespace WebApplication1.Controllers
             return View("movieList");
         }
         public ActionResult List()
+        {
+            var movies = _context.Movies.ToList();
+            return View(movies);
+        }
+        public ActionResult Ticket()
         {
             var movies = _context.Movies.ToList();
             return View(movies);

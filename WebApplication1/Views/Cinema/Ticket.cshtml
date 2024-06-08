@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    @model IEnumerable<WebApplication1.Models.CinemaModel>
 }
 
 <style>
@@ -98,10 +99,11 @@
 
     <label for="movie">Movie Choice </label>
     <select name="movie">
-        <option value="oppenheimer">Oppenheimer</option>
-        <option value="dune2">Dune Part 2</option>
-        <option value="godzilla">Godzilla</option>
-    </select><br />
+                        @foreach (var movie in Model)  
+                        {  
+        <option value="@movie.Id">@movie.mName</option>
+        }
+        </select><br />
     <label for="hall">Movie Hall Choice</label>
     <select name="movie">
         <option value="cevahir">Cevahir</option>
